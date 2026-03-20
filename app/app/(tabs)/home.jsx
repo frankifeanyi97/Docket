@@ -19,7 +19,7 @@ const Home = ()=>{
         )
     }
     return(
-        <FSafeView bgColor={'#FDF7FD'}>
+        <FSafeView bgColor={'#0D1B2A'}>
             <View style={styles.logo}>
                 <Text style={styles.logoText}>Friendzy</Text>
 
