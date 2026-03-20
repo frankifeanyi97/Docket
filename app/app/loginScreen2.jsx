@@ -126,8 +126,8 @@ const LoginScreen2 = ()=>{
         </View>
 
 
-    <View style={{borderWidth: 1, borderColor: '#99C6FF', borderRadius:100, height:40, width:40, marginVertical:10}}>
-</View>
+    <Pressable style={{borderWidth: 1, borderColor: '#99C6FF', borderRadius:100, height:40, width:40, marginVertical:10}}>
+</Pressable>
 
     </ScrollView>
     
