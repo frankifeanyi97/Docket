@@ -9,7 +9,7 @@ import Line from "../components/line";
 
 
 
-const LoginScreen2 = ()=>{
+const LoginScreen3 = ()=>{
 
 
 //   const handleButtonPress = ()=>{
@@ -45,14 +45,14 @@ const [pressed3, setPressed3] = useState(false)
      </Text>
 
       <Text style={{color:'white', fontSize:14, marginBottom:20}}>
-     Step 2 of 3 - Your Role
+     Step 3 of 3 - Create Password
      </Text>
      
      <Line 
 style={{marginTop:10, marginBottom:10, maxHeight:50}}
 style1={{backgroundColor:'#C9A84C'}}
 style2={{backgroundColor: "#C9A84C"}}
-style3={{backgroundColor: "#99C6FF"}}
+style3={{backgroundColor: "#C9A84C"}}
 />
      {/* <View>
       <Image style={{height:2.5, width:450, marginBottom: 30}} source={require('../assets/images/line2.png')}/>
@@ -66,102 +66,29 @@ style3={{backgroundColor: "#99C6FF"}}
 
 
 <Text style={{color:'white', fontSize: 17, marginBottom:40}}>
-   Select your role at{" "} <Text style={{color:'#C9A84C'}}> Mex-trial & Associates</Text> {" "}. This {"\n"}determines what you can access in Docket.
+Create a strong password to secure your Docket{'\n'}account.
 </Text>
 
 
 
+<View style={{gap:20, marginBottom:60}}>
 
-<View style={{height:100, width:450, borderWidth: 0.5, borderRadius: 12, padding:20, borderColor:'#99C6FF', marginBottom:30}}>
-    <ScrollView horizontal contentContainerStyle={{gap:140}}>
+  <View>
+<Text style={{color:'white', fontSize:14, marginBottom:5, color: '#99C6FF'}}> PASSWORD</Text>
 
-        <View>
+<TextInput  placeholderTextColor={'white'} placeholder="Min. 6 characters" style={{borderColor:'#99C6FF', borderWidth:1, borderRadius: 15, height:50, paddingHorizontal:10,  color:'white'}}>
+</TextInput>
 
-<Text style={{fontFamily:'bold', fontSize:25, color:'white'}}>
-        Senior Partner
-    </Text>
+</View>
 
-    <Text style={{fontFamily:'light', fontSize:12, color:'#99C6FF'}}>
-        Full access - manage cases team & reports
-    </Text>
-        </View>
-
-
-    <Pressable onPress={()=> setPressed(!pressed)}
-    style={{
-        borderWidth: 1,
-        backgroundColor : pressed ? '#99C6FF' : '#0D1B2A',
-        borderColor: '#99C6FF',
-        borderRadius:100, 
-        height:40, 
-        width:40, 
-        marginVertical:10
-        }}
-        >
-</Pressable>
-
-    </ScrollView>
-    
+<View>
+<Text style={{color:'white', fontSize:14, marginBottom:5, color: '#99C6FF'}}> COMFIRM PASSWORD</Text>
+<TextInput  placeholderTextColor={'white'} placeholder="Min. 6 characters" style={{borderColor:'#99C6FF', borderWidth:1, borderRadius: 15, height:50, paddingHorizontal:10 , color:'white'}}></TextInput>
 
 </View>
 
 
 
-
-<View 
-style={{
-height:100, 
-width:450, 
-borderWidth: 0.5, 
-borderRadius: 12, 
-padding:20, 
-borderColor:'#99C6FF', 
-}}
->
-    <ScrollView horizontal contentContainerStyle={{gap:70}}>
-
-        <View>
-
-<Text style={{fontFamily:'bold', fontSize:25, color:'white'}}>
-        Legal Secretary
-    </Text>
-
-    <Text style={{fontFamily:'light', fontSize:12, color:'#99C6FF'}}>
-        Create & organize cases, clients and hearings firm-wide
-    </Text>
-        </View>
-
-
-    <Pressable onPress={()=> setPressed2(!pressed2)} style={{borderWidth: 1,  backgroundColor : pressed2 ? '#99C6FF' : '#0D1B2A', borderColor: '#99C6FF', borderRadius:100, height:40, width:40, marginVertical:10}}>
-</Pressable>
-
-    </ScrollView>
-    
-</View>
-
-
-
-
-<View style={{height:100, width:450, borderWidth: 0.5, borderRadius: 12, padding:20, borderColor:'#99C6FF', marginBottom:50}}>
-    <ScrollView horizontal contentContainerStyle={{gap:20}}>
-
-        <View>
-
-<Text style={{fontFamily:'bold', fontSize:25, color:'white'}}>
-        Legal Secretary
-    </Text>
-
-    <Text style={{fontFamily:'light', fontSize:14, color:'#99C6FF'}}>
-        Create & organize cases, clients and hearings firm-wide
-    </Text>
-        </View>
-
-
-    <Pressable onPress={()=> setPressed3(!pressed3)} style={{borderWidth: 1,  backgroundColor : pressed3 ? '#99C6FF' : '#0D1B2A', borderColor: '#99C6FF', borderRadius:100, height:40, width:40, marginVertical:10}}>
-</Pressable>
-
-    </ScrollView>
-    
 </View>
 
 
@@ -175,7 +102,7 @@ borderColor:'#99C6FF',
 
       <View style={styles.btnContainer }>
         <Button2 onPress={()=>{
-          router.push('./loginScreen3')
+          router.push('./accountCreated')
         }} text={'Continue'} style={{width:170, height:40}}/>
       </View>
 
@@ -199,6 +126,7 @@ borderColor:'#99C6FF',
 
   </ScrollView>
 </View>
+
 
     </SafeAreaView>
   )
@@ -284,4 +212,4 @@ borderWidth: 2, borderColor: '#99C6FF', borderRadius: 10, width:100, height: 25,
   }
 })
 
-export default LoginScreen2;
+export default LoginScreen3;

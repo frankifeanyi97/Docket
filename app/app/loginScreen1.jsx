@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import FSafeView from "../components/safeView";
 import Button from "../components/button";
 import { router } from "expo-router";
+import Line from "../components/line";
 
 
 
@@ -42,10 +43,15 @@ const LoginScreen1 = ()=>{
 
 </View>
      
-
-     <View>
+<Line 
+style={{marginTop:10, marginBottom:10, maxHeight:50}}
+style1={{backgroundColor:'#C9A84C'}}
+style2={{backgroundColor: "#99C6FF"}}
+style3={{backgroundColor: "#99C6FF"}}
+/>
+     {/* <View>
       <Image style={{height:2.5, width:450, marginBottom: 50}} source={require('../assets/images/line.png')}/>
-     </View>
+     </View> */}
 
 <View style={{gap:20}}>
 
