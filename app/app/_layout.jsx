@@ -1,7 +1,10 @@
 import { Stack } from "expo-router"
 import {useFonts} from 'expo-font'
+import { RegistrationProvider } from '../context/RegistrationContext';
 
-
+// We import RegistrationProvider here so every screen in the app
+// can access the shared registration form data via useRegistration().
+// Wrapping Stack (not just the signup screens) is the simplest approach.
 
 const RootLayout = ()=>{
 
@@ -21,12 +24,12 @@ const RootLayout = ()=>{
 
 
   return(
-    <Stack screenOptions={{headerShown:false}}>
-      {/* <Stack.Screen name="(tabs)"/> */}
-  {/* <Stack.Screen name="loginScreen2"/>  */}
-
-    </Stack>
- 
+    <RegistrationProvider>
+      <Stack screenOptions={{headerShown:false}}>
+        {/* <Stack.Screen name="(tabs)"/> */}
+        {/* <Stack.Screen name="loginScreen2"/>  */}
+      </Stack>
+    </RegistrationProvider>
   )
 }
 
