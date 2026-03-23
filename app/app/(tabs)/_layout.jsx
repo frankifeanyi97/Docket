@@ -7,7 +7,7 @@ const TabLayout = ()=>{
 
     const Icon = ({focused, source})=>{
         return(
-            <View style={{backgroundColor:focused&& '#DD88CF', padding:10, borderRadius:50}}>
+            <View style={{backgroundColor:focused&& '#D4A843', padding:20, borderRadius:50}}>
             <Image style={{width:24, height:24}} source={source}/>
             {/* <Text>Hello</Text> */}
         </View>
@@ -24,12 +24,12 @@ const TabLayout = ()=>{
         <Tabs screenOptions={{
             headerShown:false,
             tabBarStyle:{
-                marginHorizontal:30,
+                // marginHorizontal:30,
                 height:90,
                 position:'absolute',
-                bottom:50,
-                // backgroundColor:'red',
-                borderRadius:50,
+                // bottom:10,
+                backgroundColor:'#08121F',
+                // borderRadius:50,
                 justifyContent:'center',
                 alignItems:'center'
 
@@ -42,27 +42,27 @@ const TabLayout = ()=>{
             }
         }}>
             <Tabs.Screen name='home' options={{
-                title:'',
-                tabBarIcon: ({focused})=> <Icon focused={focused} source={require('../../assets/images/home.png')}/>
+                title:'Home',
+                tabBarIcon: ({focused})=> <Icon focused={focused} source={require('../../assets/images/homeInactive.png')}/>
                 
 
             
             }}/>
-            <Tabs.Screen name='discover' options={{
-                title:'',
-                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/discover.png')}/>
+            <Tabs.Screen name='cases' options={{
+                title:'Cases',
+                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/casesInactive.png')}/>
             }}/>
-            <Tabs.Screen name='plus' options={{
-                title:'',
-                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/plus.png')}/>
+            <Tabs.Screen name='clients' options={{
+                title:'Clients',
+                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/clientInactive.png')}/>
             }}/>
-            <Tabs.Screen name='match' options={{
-                title:'',
-                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/match.png')}/>
+            <Tabs.Screen name='hearing' options={{
+                title:'Hearing',
+                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/hearingInactive.png')}/>
             }}/>
-            <Tabs.Screen name='messages' options={{
-                title:'',
-                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/message.png')}/>
+            <Tabs.Screen name='settings' options={{
+                title:'Settings',
+                tabBarIcon: ({focused})=><Icon focused={focused} source={require('../../assets/images/settingsInactive.png')}/>
             }}/>
 
         </Tabs>

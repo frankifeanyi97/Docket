@@ -2,13 +2,13 @@ import FSafeView from "../../components/safeView"
 
 import { Text } from "react-native";
 
-const Discover = ()=>{
+const Hearing = ()=>{
     return(
         <FSafeView>
-            <Text>Discover</Text>
+            <Text>Hearing</Text>
         </FSafeView>
     )
 }
 
 
-export default Discover;
+export default Hearing;

@@ -2,13 +2,13 @@ import FSafeView from "../../components/safeView"
 import { Text } from "react-native";
 
 
-const Plus = ()=>{
+const Settings = ()=>{
     return(
-        <FSafeView bgColor={'#FDF7FD'}>
-            <Text>Plus</Text>
+        <FSafeView>
+            <Text>Settings</Text>
         </FSafeView>
     )
 }
 
 
-export default Plus;
+export default Settings;

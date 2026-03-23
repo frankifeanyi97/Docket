@@ -2,13 +2,13 @@ import FSafeView from "../../components/safeView"
 import { Text } from "react-native";
 
 
-const Messages = ()=>{
+const Clients = ()=>{
     return(
-        <FSafeView>
-            <Text>Messages</Text>
+        <FSafeView bgColor={'#FDF7FD'}>
+            <Text>Clients</Text>
         </FSafeView>
     )
 }
 
 
-export default Messages;
+export default Clients;
