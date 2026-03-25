@@ -1,190 +1,175 @@
-import { View, Text , Image, StyleSheet, Pressable, ScrollView, TextInput} from "react-native"
+import { View, Text, Image, StyleSheet, Pressable, ScrollView, TextInput } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
-import FSafeView from "../components/safeView";
 import Button from "../components/button";
 import { router } from "expo-router";
 import Line from "../components/line";
+import { useState } from "react";
+import { useRegistration } from "../context/RegistrationContext";
 
 
 
 
-const LoginScreen1 = ()=>{
+const LoginScreen1 = () => {
 
+  const [fullName, setFullName]   = useState('');
+  const [email, setEmail]         = useState('');
+  const [specialty, setSpecialty] = useState('');
+  const [error, setError]         = useState('');
 
-  // const handleButtonPress = ()=>{
+  const { setField } = useRegistration();
 
-  //   router.push('./loginScreen2')
+  const handleContinue = () => {
+    if (!fullName.trim()) {
+      setError('Please enter your full name.');
+      return;
+    }
+    if (!email.trim() || !email.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!specialty.trim()) {
+      setError('Please enter your area of specialty.');
+      return;
+    }
 
-  
+    setError('');
 
-  return(
-    <SafeAreaView style={{backgroundColor: '#0D1B2A',flex:1, paddingHorizontal:20}}>
+    setField('full_name', fullName.trim());
+    setField('email', email.trim().toLowerCase());
+    setField('specialty', specialty.trim());
 
-<ScrollView horizontal contentContainerStyle={{gap:20, marginTop:90}} style={{maxHeight:200}} >
-   <View style={styles.imageContainer}>
-          <Image style={styles.image} source={require('../assets/images/docketLogo.png')}/>
-           </View>
+    router.push('./loginScreen2');
+  };
 
-       <View>
- <Text style={styles.text}>Docket</Text>
+  return (
+    <SafeAreaView style={{ backgroundColor: '#0D1B2A', flex: 1, paddingHorizontal: 20 }}>
+
+      <ScrollView horizontal contentContainerStyle={{ gap: 20, marginTop: 90 }} style={{ maxHeight: 200 }}>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={require('../assets/images/docketLogo.png')} />
+        </View>
+        <View>
+          <Text style={styles.text}>Docket</Text>
           <Text style={styles.text2}>Legal Case Management - Mex-Trial </Text>
-       </View>
-         
-</ScrollView>
+        </View>
+      </ScrollView>
 
-<View style={{marginBottom:30}}>
-<Text style={{color:'white', fontFamily:'bold', fontSize: 17, marginBottom:20}}>
-      Create account
-     </Text>
-
-      <Text style={{color:'white', fontSize:14}}>
-     Step 1 of 3 - Your Information
-     </Text>
-
-</View>
-     
-<Line 
-style={{marginTop:10, marginBottom:10, maxHeight:50}}
-style1={{backgroundColor:'#C9A84C'}}
-style2={{backgroundColor: "#99C6FF"}}
-style3={{backgroundColor: "#99C6FF"}}
-/>
-     {/* <View>
-      <Image style={{height:2.5, width:450, marginBottom: 50}} source={require('../assets/images/line.png')}/>
-     </View> */}
-
-<View style={{gap:20}}>
-
-  <View>
-<Text style={{color:'white', fontSize:15, marginBottom:5}}> FULL NAME</Text>
-
-<TextInput  placeholderTextColor={'white'} placeholder="e.g. Tunde Bakare" style={{backgroundColor:'#FFFFFF66', borderRadius: 15, height:50, paddingHorizontal:10, color:'white'}}>
-</TextInput>
-
-</View>
-
-<View>
-<Text style={{color:'white', fontSize:15, marginBottom:5}}> WORK EMAIL</Text>
-<TextInput  placeholderTextColor={'white'} placeholder="e.g  amaka@yourfirm.ng" style={{backgroundColor:'#FFFFFF66', borderRadius: 15, height:50, paddingHorizontal:10 , color:'white'}}></TextInput>
-
-</View>
-
-<View>
-<Text style={{color:'white', fontSize:15, marginBottom:5}}> LAW FIRM NAME</Text>
-<TextInput  placeholderTextColor={'white'} placeholder="Mex-Trial & Associates" style={{backgroundColor:'#FFFFFF66', borderRadius: 15, height:50, paddingHorizontal:10 , color:'white'}}></TextInput>
-
-</View>
-
-<View>
-
-<View style={styles.btnContainer }>
-        <Button onPress={()=>{
-          router.push('./loginScreen2')
-        }} text={'Continue'} style={{width:450}}/>
+      <View style={{ marginBottom: 30 }}>
+        <Text style={{ color: 'white', fontFamily: 'bold', fontSize: 17, marginBottom: 20 }}>
+          Create account
+        </Text>
+        <Text style={{ color: 'white', fontSize: 14 }}>
+          Step 1 of 3 - Your Information
+        </Text>
       </View>
 
-</View>
+      <Line
+        style={{ marginTop: 10, marginBottom: 10, maxHeight: 50 }}
+        style1={{ backgroundColor: '#C9A84C' }}
+        style2={{ backgroundColor: "#99C6FF" }}
+        style3={{ backgroundColor: "#99C6FF" }}
+      />
 
-</View>
+      <View style={{ gap: 20 }}>
 
-<View>
-  <ScrollView horizontal contentContainerStyle={{gap:20, marginHorizontal:118}} >
-    <Text style={{color:'#99C6FF', fontSize:14}}>
-      Already have an account?
-    </Text>
-    
-<Pressable onPress={()=> {
-  router.back()
-}}>
-      <Text style={{color:'#C9A84C', fontSize:14}}>
-      Sign In
-    </Text>
-    </Pressable>
+        <View>
+          <Text style={{ color: 'white', fontSize: 15, marginBottom: 5 }}> FULL NAME</Text>
+          <TextInput
+            value={fullName}
+            onChangeText={setFullName}
+            placeholderTextColor={'white'}
+            placeholder="e.g. Tunde Bakare"
+            style={{ backgroundColor: '#FFFFFF66', borderRadius: 15, height: 50, paddingHorizontal: 10, color: 'white' }}
+          />
+        </View>
 
-  </ScrollView>
-</View>
-     
+        <View>
+          <Text style={{ color: 'white', fontSize: 15, marginBottom: 5 }}> WORK EMAIL</Text>
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
+            placeholderTextColor={'white'}
+            placeholder="e.g  amaka@yourfirm.ng"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={{ backgroundColor: '#FFFFFF66', borderRadius: 15, height: 50, paddingHorizontal: 10, color: 'white' }}
+          />
+        </View>
+
+        <View>
+          <Text style={{ color: 'white', fontSize: 15, marginBottom: 5 }}> SPECIALTY</Text>
+          <TextInput
+            value={specialty}
+            onChangeText={setSpecialty}
+            placeholderTextColor={'white'}
+            placeholder="e.g. Corporate Law, Criminal Law"
+            style={{ backgroundColor: '#FFFFFF66', borderRadius: 15, height: 50, paddingHorizontal: 10, color: 'white' }}
+          />
+        </View>
+
+        <View>
+          <Text style={{ color: 'white', fontSize: 15, marginBottom: 5 }}> LAW FIRM NAME</Text>
+          <TextInput
+            placeholderTextColor={'white'}
+            placeholder="Mex-Trial & Associates"
+            editable={false}
+            style={{ backgroundColor: '#FFFFFF66', borderRadius: 15, height: 50, paddingHorizontal: 10, color: 'white' }}
+          />
+        </View>
+
+        {error ? (
+          <Text style={{ color: '#FF6B6B', fontSize: 13, marginTop: -10 }}>{error}</Text>
+        ) : null}
+
+        <View style={styles.btnContainer}>
+          <Button onPress={handleContinue} text={'Continue'} style={{ width: 450 }} />
+        </View>
+
+      </View>
+
+      <View>
+        <ScrollView horizontal contentContainerStyle={{ gap: 20, marginHorizontal: 118 }}>
+          <Text style={{ color: '#99C6FF', fontSize: 14 }}>
+            Already have an account?
+          </Text>
+          <Pressable onPress={() => { router.back() }}>
+            <Text style={{ color: '#C9A84C', fontSize: 14 }}>
+              Sign In
+            </Text>
+          </Pressable>
+        </ScrollView>
+      </View>
+
     </SafeAreaView>
-  )
+  );
 }
 
 
 const styles = StyleSheet.create({
-
-  // imageContainer:{
-  //   marginTop:100
-
-  // },
-  image:{
-    width:70,
-    height:60,
-    resizeMode:'cover',
-    alignSelf:'center', marginBottom: 20
-
+  image: {
+    width: 70,
+    height: 60,
+    resizeMode: 'cover',
+    alignSelf: 'center',
+    marginBottom: 20,
   },
-  text:{
-    fontFamily:'bold',
-    fontSize:30,
-    textAlign:'left',
+  text: {
+    fontFamily: 'bold',
+    fontSize: 30,
+    textAlign: 'left',
     color: 'white',
-    // marginVertical:1
   },
-
-text2:{
-fontFamily:'light',
-    fontSize:14,
-    textAlign:'center',
-    color: 'white'
-},
-
-welcome:{
-marginBottom: 30, gap: 10
-
-},
-
-text3:{
-fontFamily:'medium',
-    fontSize:17,
-    textAlign:'left',
-    color: 'white'
-},
-
-text4:{
-fontFamily:'light',
-    fontSize:14,
-    textAlign:'left',
-    color: '#99C6FF'
-},
-
-category:{
-borderWidth: 2, borderColor: '#99C6FF', borderRadius: 10, width:100, height: 25, alignItems: 'center', padding: 2, backgroundColor:'#0D1B2A'
-},
-
-  btnContainer:{
-    gap:16,
-    marginVertical:40,
-    // width: 300,
-    alignSelf:'center',
-   
-    
+  text2: {
+    fontFamily: 'light',
+    fontSize: 14,
+    textAlign: 'center',
+    color: 'white',
   },
-  link:{
-    alignSelf:'center',
-    position:'absolute',
-    bottom:50
+  btnContainer: {
+    gap: 16,
+    marginVertical: 40,
+    alignSelf: 'center',
   },
-  linkText:{
-    fontFamily:'regular',
-    color:'#22172A'
-  },
-  icon:{
-
-    width:40,
-    height:40,
-    position:'relative',
-    left:-60
-
-  }
-})
+});
 
 export default LoginScreen1;

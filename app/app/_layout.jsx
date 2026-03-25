@@ -1,5 +1,6 @@
 import { Stack } from "expo-router"
 import {useFonts} from 'expo-font'
+import { RegistrationProvider } from '../context/RegistrationContext';
 
 
 
@@ -21,12 +22,12 @@ const RootLayout = ()=>{
 
 
   return(
-    <Stack screenOptions={{headerShown:false}}>
-      {/* <Stack.Screen name="(tabs)"/> */}
-  {/* <Stack.Screen name="loginScreen2"/>  */}
-
-    </Stack>
- 
+    <RegistrationProvider>
+      <Stack screenOptions={{headerShown:false}}>
+        {/* <Stack.Screen name="(tabs)"/> */}
+        {/* <Stack.Screen name="loginScreen2"/>  */}
+      </Stack>
+    </RegistrationProvider>
   )
 }
 
