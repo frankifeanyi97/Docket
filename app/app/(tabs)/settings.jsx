@@ -71,7 +71,7 @@ export default function Settings() {
               <Text style={styles.profileAvatarText}>CO</Text>
             </View>
             <View>
-              <Text style={styles.profileName}>Chidi Okonkwo</Text>
+              <Text style={styles.profileName}>Frank Ifeanyi</Text>
               <View style={styles.roleBadge}>
                 <Text style={styles.roleText}>Senior Partner</Text>
               </View>
@@ -187,7 +187,7 @@ export default function Settings() {
 
         </ScrollView>
 
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
 
           <TouchableOpacity style={styles.tabItem} onPress={() => router.push('/dashboard/dashB')}>
             <Ionicons name="home-outline" size={22} color="#9CA3AF" />
@@ -220,7 +220,7 @@ export default function Settings() {
             <Text style={styles.activeTab}>Settings</Text>
           </TouchableOpacity>
 
-        </View>
+        </View> */}
 
       </SafeAreaView>
     </>
@@ -232,7 +232,8 @@ const styles = StyleSheet.create({
 
   safeArea: { 
     flex: 1, 
-    backgroundColor: '#071426'
+    backgroundColor: '#071426',
+    marginBottom:80
    },
 
   container: { 

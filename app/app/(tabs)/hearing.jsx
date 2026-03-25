@@ -223,7 +223,7 @@ export default function Hearings() {
         </View>
 
         {/* ---- BOTTOM TAB BAR ---- */}
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
 
           <TouchableOpacity style={styles.tabItem} onPress={() => router.push('/dashboard/dashB')}>
             <Ionicons name="home-outline" size={22} color="#9CA3AF" />
@@ -251,7 +251,7 @@ export default function Hearings() {
          <Text style={styles.tab}>Settings</Text>
         </TouchableOpacity>
 
-        </View>
+        </View> */}
       </SafeAreaView>
     </>
   );

@@ -43,10 +43,10 @@ export default function dashboard() {
     return (
         <>
           <Stack.Screen options={{ headerShown: false }} />
-          <SafeAreaView style={{ flex: 1}}>
+          <SafeAreaView style={{ flex: 1, marginBottom:80}}>
             <View style={styles.container}>
             <Text style={styles.greeting}>GOOD MORNING</Text>
-        <Text style={styles.name}>Chidi Okonkwo</Text>
+        <Text style={styles.name}>Frank Ifeanyi</Text>
         <Text style={styles.badge}>Senior Partner</Text>
 
     
@@ -106,7 +106,7 @@ export default function dashboard() {
         </View>
 
         
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
           <TouchableOpacity style={{ alignItems: 'center' }} >
           <Ionicons name="home" size={24} color="#FBBF24" />
           <Text style={styles.activeTab}>Home</Text>
@@ -174,7 +174,7 @@ export default function dashboard() {
   <Ionicons name="settings-outline" size={22} color="#9CA3AF" />
   <Text style={styles.tab}>Settings</Text>
 </TouchableOpacity>
-        </View>
+        </View> */}
 
             </View>
           </SafeAreaView>

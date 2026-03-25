@@ -207,7 +207,7 @@ export default function Clients() {
         </TouchableOpacity>
 
      
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
 
           <TouchableOpacity style={styles.tabItem} onPress={() => router.push('/dashboard/dashB')}>
             <Ionicons name="home-outline" size={22} color="#9CA3AF" />
@@ -217,10 +217,10 @@ export default function Clients() {
           <TouchableOpacity style={styles.tabItem} onPress={() => router.push('/dashboard/cases')}>
             <MaterialIcons name="cases" size={22} color="#9CA3AF" />
             <Text style={styles.tab}>Cases</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           {/* Clients is active on this screen */}
-          <TouchableOpacity style={styles.tabItem}>
+          {/* <TouchableOpacity style={styles.tabItem}>
             <Ionicons name="people" size={22} color="#FBBF24" />
             <Text style={styles.activeTab}>Clients</Text>
           </TouchableOpacity>
@@ -239,7 +239,7 @@ export default function Clients() {
          <Ionicons name="settings-outline" size={22} color="#9CA3AF" />
          <Text style={styles.tab}>Settings</Text>
         </TouchableOpacity>
-        </View>
+        </View> */}
 
       </SafeAreaView>
     </>
@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#071426',
+    marginBottom:80
     
   },
 

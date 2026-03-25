@@ -198,7 +198,7 @@ export default function Cases() {
         </View>
 
         
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
 
           <TouchableOpacity style={styles.tabItem} onPress={() => router.push('/dashboard/dashB')}>
             <Ionicons name="home-outline" size={22} color="#9CA3AF" />
@@ -230,7 +230,7 @@ export default function Cases() {
          <Text style={styles.tab}>Settings</Text>
         </TouchableOpacity>
 
-        </View>
+        </View> */}
 
        
 
